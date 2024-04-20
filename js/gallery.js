@@ -82,3 +82,21 @@ const markup = images
   .join(` `);
 
 document.querySelector("ul.gallery").innerHTML = markup;
+
+const galleryItems = document.querySelectorAll(".gallery-link");
+
+galleryItems.forEach((item) => {
+  item.addEventListener("click", (event) => {
+    event.preventDefault();
+    const img = event.currentTarget.querySelector(".gallery-image");
+    const largeImageSrc = img.getAttribute("data-source");
+    const description = img.getAttribute("alt");
+    basicLightbox
+      .create(
+        `
+      <img src="${largeImageSrc}" alt="${description}">
+    `
+      )
+      .show();
+  });
+});
