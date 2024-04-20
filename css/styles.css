@@ -17,3 +17,9 @@ img {
   width: 100%;
   height: auto;
 }
+
+img:hover {
+  transform: scale(1.04);
+  transition: transform 0.8s;
+  gap: 6px;
+}
